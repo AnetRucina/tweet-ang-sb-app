@@ -1,0 +1,36 @@
+<div class="text-light">
+    <div class="container-fluid">
+        <h2 class="searchbar">Search User</h2>
+       <div class="row">
+           <div class="col-lg-12 col-sm-12">
+            <div class="input-group">
+                <mat-form-field class="searchBox" appearance="outline">
+                    <input
+                      id="nameAutoComplete"
+                      type="text"  
+                      placeholder="Start tweets by user" 
+                      (input)="searchByNameContains()"
+                      matInput [formControl]="searchUser"
+                      [matAutocomplete]="auto"
+                    >
+                    <mat-autocomplete 
+                      #auto="matAutocomplete"
+                      (optionSelected)='SearchTweetByUser($event.option.value)'
+                      [displayWith]="getOptionText"
+                    >
+                      <mat-option 
+                        *ngFor="let option of nameOptions" 
+                        [value]="option"
+                      >
+                        {{option.firstName}}
+                      </mat-option>
+                    </mat-autocomplete>
+                  </mat-form-field>
+            </div>
+        </div>
+           </div>
+       </div>
+</div>
+<div class="container-fluid">
+    <app-my-tweets [tweets]="tweetlist" [userRestrictionFlag]="userRestrictionFlag"></app-my-tweets>
+</div>

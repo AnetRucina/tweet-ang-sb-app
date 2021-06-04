@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="col-sm-12 col-md-6 col-lg-3">
+            <mat-card>
+                <mat-card-content>
+                    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                        <p>Please login to continue</p>
+                        <mat-form-field appearance="outline">
+                            <input matInput placeholder="User" formControlName="loginId" required>
+                            <mat-error *ngIf="!form.controls['loginId'].valid">
+                                Login Id is required
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <input matInput type="password" placeholder="Password" formControlName="password" required>
+                            <mat-error *ngIf="!form.controls['password'].valid">
+                                Password is required
+                            </mat-error>
+                        </mat-form-field>
+                        <button mat-raised-button color="primary" [disabled]="!form.valid" type="submit">Login</button>
+                        <div>
+                            <br>
+                            <p>Forgot Password?<a routerLink="/forgetPassword">Click here</a></p>
+                            <p>register?<a routerLink="/register">Click here</a></p>
+                        </div>
+                    </form>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

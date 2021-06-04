@@ -1,0 +1,16 @@
+
+<form [formGroup]="tweetMessageForm">
+    <div class="form-group">
+        <div *ngIf="!data.updateFlag">
+            <label for="comment">Enter Tweet Message:</label>
+        </div>
+        <div *ngIf="data.updateFlag">
+            <label for="comment">Enter reply Message:</label>
+        </div>
+        <textarea class="form-control" formControlName="tweetMessage" rows="5"></textarea>
+        <div class="error" *ngIf="tweetMessageForm.controls['tweetMessage'].errors?.required">Message is required.</div> 
+    </div>
+    <div>
+        <button class="btn" [disabled]="!tweetMessageForm.valid" (click)="postTweet()">Post</button>
+    </div>
+</form>

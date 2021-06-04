@@ -1,0 +1,36 @@
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title text">{{user.loginId}}</h4>
+                    <div class="card-text">
+                        <div>
+                            <img class="profile-image" src="/assets/images/person-icon.png" alt="Profile">
+                            <div  class="padTop">
+                                <span><mat-icon>account_box</mat-icon></span>
+                                <span class="padleft">{{user.firstName}}</span>
+                                <span class="padleft">{{user.lastName}}</span>
+                            </div>
+                            <div class="padTop">
+                                <span><mat-icon>local_phone</mat-icon></span>
+                                <span class="padleft">{{user.contactNumber}}</span>
+                            </div>
+                            <div class="padTop">
+                                <span><mat-icon>email</mat-icon></span>
+                                <span class="padleft">{{user.email}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-9 col-md-9 col-sm-12">
+           <div align="end">
+            <button class="btn" (click)="openPostTweetDialog()"><mat-icon>add</mat-icon> Add Tweet</button>
+           </div>
+            <div>
+                <app-my-tweets [tweets]="tweets" [userRestrictionFlag]="userRestrictionFlag"></app-my-tweets>
+            </div>
+        </div>
+    </div>
